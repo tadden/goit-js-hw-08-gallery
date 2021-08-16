@@ -64,40 +64,4 @@ const galleryItems = [
   },
 ];
 
-const imgList = document.querySelector('.js-gallery');
-const imgCards = createImgCards(galleryItems);
-
-imgList.insertAdjacentHTML('beforeend', imgCards)
-
-
-imgList.addEventListener('click',onImgClick)
-
-
-
-function createImgCards(gallery) {
-
-  return gallery.map(img => {
-    return `
-  <li class="gallery__item">
-        <a class="gallery__link"
-            href="${img.original}">
-          <img class="gallery__image"
-          src="${img.preview}"
-          alt="${img.description}" />
-        </a>
-  </li>
-  `;
-  }).join('');
-}
-
-function onImgClick(e) {
-  
-  const isImg = e.target.classList.contains('gallery__image')
-  if (!isImg) {
-    return;
-  }
-  document.querySelector('.lightbox').classList.add('is-open')
-  
-  ;
-}
-
+export default galleryItems;
