@@ -28,18 +28,14 @@ function openModal(evt) {
   if (evt.target.nodeName !== 'IMG') {
     return;
   };
-  lightbox.classList.add('is-open');
-  galleryItems.forEach(item => {
-    if (evt.target.getAttribute('src') === item.preview) {
-      lightboxImg.setAttribute('src', item.original);
-      lightboxImg.setAttribute('alt', item.description);
-    }
-  })
+    lightbox.classList.add('is-open');
+    lightboxImg.setAttribute('src', evt.target.dataset.source)
 }
+
 function closeModal(evt) { 
   if (evt.target.classList.contains('lightbox__button') || evt.target.classList.contains('lightbox__overlay') || evt.key === 'Escape' ) {
       lightbox.classList.remove('is-open');
-      galleryItems.forEach(item => {lightboxImg.removeAttribute('src')})
+      lightboxImg.removeAttribute('src')
     }
 }
 
